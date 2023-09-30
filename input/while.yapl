@@ -1,0 +1,16 @@
+class Main {
+  	cont: Int <- 10;
+	i: Int <- 1;
+  
+  	main() : SELF_TYPE {
+        {
+            while i <= cont loop
+                {
+                    out_int(i);
+                    i <- i + 1;
+                } 
+            pool;
+            self;
+        }
+	};
+};
