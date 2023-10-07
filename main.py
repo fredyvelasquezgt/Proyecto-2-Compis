@@ -127,6 +127,7 @@ class YaplAnalyzerApp:
             cont = cont + 1
             threeACRepresentation.field_names = record.keys()
             threeACRepresentation.add_row(record.values())
+            
 
         walker.getTAC().generate_code()
 
@@ -148,7 +149,7 @@ class YaplAnalyzerApp:
         print(f"----------------------------- {error_type} -----------------------------")
         for error in errors:
             if "payload" in error:
-                print(f"{error_type}: position {error['payload'].line}:{error['payload'].column} {error['msg']}")
+                print(f"{error_type}: En posicion {error['payload'].line}:{error['payload'].column}, cuidado con ")
                 self.text_area_console.insert(tk.INSERT, "\n")
                 self.text_area_console.insert(tk.INSERT, f"{error_type}: position {error['payload'].line}:{error['payload'].column} {error['msg']}", 'error')
                 self.text_area_console.tag_config('error', foreground=text_color)
@@ -159,6 +160,8 @@ class YaplAnalyzerApp:
                 self.text_area_console.tag_config('error', foreground=text_color)
         print("--------------------------------------------------------------------------")
         print("\n" + ANSI_RESET)
+
+        
 
     def display_tac(self):
         with open('output/code.tac', 'r') as f:
@@ -191,3 +194,6 @@ if __name__ == '__main__':
     window = tk.Tk()
     app = YaplAnalyzerApp(window)
     window.mainloop()
+
+
+
