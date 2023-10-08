@@ -90,3 +90,81 @@ Todos los métodos actualmente simplemente llaman a self.visitChildren(ctx), que
 Eliminación de yaplParser:
 
 Al final del archivo, el código elimina la referencia a yaplParser con del yaplParser.
+
+## yaplWalker.py
+
+El propósito de la clase yaplWalker es recorrer el Árbol de Sintaxis Abstracta (AST) generado por el analizador YAPL y realizar diversas acciones y validaciones, como poblar una tabla de símbolos y generar código de tres direcciones.
+
+Aquí hay un resumen de los diversos componentes y funcionalidades proporcionadas por la clase yaplWalker:
+
+Inicialización y Propiedades:
+
+Inicializa una serie de variables de instancia como labels, basic_types, contadores para main_class y main_method, current_class_name y current_class_uuid, entre otros.
+Tabla de Símbolos y Código de Tres Direcciones (TAC):
+
+Las funciones initSymbolTable e init3AddressCode para inicializar la tabla de símbolos y TAC, respectivamente.
+getSymbolTable y getTAC para recuperarlos.
+add_to_symbol_table agrega entradas a la tabla de símbolos y maneja posibles errores.
+
+Funciones de Utilidad:
+
+find_type_id y find_object_id: Recuperan símbolos de la tabla de símbolos basándose en su ID.
+new_label: Crea y devuelve una nueva etiqueta para el código de tres direcciones.
+Funciones Visitantes: Las dos principales funciones visitantes son:
+
+visitProg: Esta función visita el nodo raíz del AST. Primero define las clases básicas (Object, Int, Bool, String y IO) y sus métodos. Luego, visita a sus hijos. Después del recorrido, verifica si hay exactamente una clase principal y un método principal.
+
+visitClass_def: Esta función visita los nodos de definición de clases. Valida la clase (verificando si la clase hereda correctamente y asegura que no haya múltiples herencias o herencias recursivas). Si las validaciones pasan, añade la clase a la tabla de símbolos.
+Hay múltiples verificaciones de errores en todo el código. Por ejemplo, verifica:
+
+La existencia de solo una clase Main.
+Solo un método principal en la clase Main.
+Validaciones de herencia de clases (por ejemplo, una clase no debe heredar de un tipo básico, o de sí misma, y no se permite la herencia múltiple).
+
+visitFeat_def:
+
+Establece el nombre del método actual que se está procesando.
+Verifica si hay demasiados métodos principales denominados "main" y si el método principal tiene parámetros formales, lo cual no es permitido.
+Busca el símbolo en la tabla de símbolos y agrega errores si se encuentra que ya existe.
+Si no existe, agrega el símbolo a la tabla y genera código de tres direcciones para visitar la expresión dentro del método.
+
+visitFeat_asgn:
+
+Busca una variable en la tabla de símbolos dentro del alcance local y verifica si ya existe. Si es así, agrega un error. Si no, la añade a la tabla de símbolos.
+Visita los hijos del nodo.
+visitFormal:
+
+Establece el alcance global y local.
+Busca el símbolo del método en la tabla de símbolos y agrega los tipos de parámetros al símbolo.
+Verifica si el parámetro ya existe dentro del alcance actual. Si es así, agrega un error.
+Añade el parámetro a la tabla de símbolos y visita los hijos del nodo.
+visitAsgn:
+
+Es una función vacía en este fragmento y simplemente devuelve el contexto.
+
+visitExpr_asgn:
+
+Busca el símbolo de la variable en los alcances local y global y genera código de tres direcciones para asignar un valor a la variable.
+
+visitExpr_class_call:
+
+Visita las expresiones dentro de la llamada y genera código de tres direcciones para la llamada de clase.
+
+visitExpr_call:
+
+Visita las expresiones dentro de la llamada y genera código de tres direcciones para la llamada al método.
+
+visitExpr_if:
+
+Genera código de tres direcciones para una estructura condicional "if-else" basado en las expresiones proporcionadas.
+
+visitExpr_while:
+
+Genera código de tres direcciones para una estructura de bucle "while" basado en las expresiones proporcionadas.
+
+visitExpr_brackets:
+
+Visita las expresiones dentro de los corchetes y devuelve la primera expresión.
+
+visitExpr_decl:
+Visita la declaración de expresión y genera código de tres direcciones para la declaración.
