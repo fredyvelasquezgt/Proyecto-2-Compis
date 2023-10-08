@@ -54,4 +54,14 @@ Si este archivo se ejecuta como un script principal, se crea una instancia de la
 
 ## threeAddressCode.py
 
+Clase Terceto:
 
+Atributos: Define componentes de una instrucción de tres direcciones: operador (o), operandos (x y y), resultado (r), y etiqueta (l). Es evidente que hay partes del código que no utilizan el atributo r (comentado).
+Método keys(): Devuelve una lista de las claves que representan los atributos de un terceto. Hay código redundante y posiblemente errores ya que hay dos declaraciones return.
+Método values(): Devuelve una lista de los valores asociados a un terceto, nuevamente hay código redundante con dos declaraciones return.
+
+Clase ThreeAddressCode:
+
+Atributo tercetos: Una lista que almacenará los tercetos creados.
+Método add(): Permite agregar un nuevo terceto a la lista. Valida y convierte los valores de entrada a cadenas si no son None, enteros o cadenas. También genera un valor predeterminado para el atributo r si no se proporciona.
+Método generate_code(): Genera y escribe el código intermedio basado en los tercetos en un archivo llamado "output/code.tac". Según el operador y los operandos, decide qué formato de instrucción escribir.
