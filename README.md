@@ -65,3 +65,28 @@ Clase ThreeAddressCode:
 Atributo tercetos: Una lista que almacenará los tercetos creados.
 Método add(): Permite agregar un nuevo terceto a la lista. Valida y convierte los valores de entrada a cadenas si no son None, enteros o cadenas. También genera un valor predeterminado para el atributo r si no se proporciona.
 Método generate_code(): Genera y escribe el código intermedio basado en los tercetos en un archivo llamado "output/code.tac". Según el operador y los operandos, decide qué formato de instrucción escribir.
+
+## yaplWalker.py
+
+Este código define un visitante para árboles de análisis generados por el parser de yapl. El visitante está estructurado para manejar y visitar diferentes tipos de nodos en el árbol.
+
+Importaciones:
+
+Importa herramientas necesarias de antlr4.
+Se condiciona la importación del módulo yaplParser dependiendo de si el archivo actual se ejecuta como módulo o no.
+
+Clase yaplVisitor:
+
+Hereda de ParseTreeVisitor.
+Esta clase define un visitante genérico completo para un árbol de análisis producido por yaplParser.
+
+Métodos de Visitante:
+
+Cada método de visitante tiene un patrón similar: visit[NombreDelNodo](self, ctx).
+Por ejemplo, visitProg, visitClass_def, visitFeat_def, etc.
+Cada método visita un nodo específico (o tipo de nodo) en el árbol de análisis.
+Todos los métodos actualmente simplemente llaman a self.visitChildren(ctx), que visita todos los nodos hijos del nodo actual.
+
+Eliminación de yaplParser:
+
+Al final del archivo, el código elimina la referencia a yaplParser con del yaplParser.
