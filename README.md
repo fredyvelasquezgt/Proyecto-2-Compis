@@ -6,7 +6,11 @@
 - main.py:
 - threeAddressCode.py:
 - yaplWalker.py
-  
+
+## CodigoIntermedio.md
+
+El documento proporciona una guía sobre cómo se diseñan y estructuran operaciones aritméticas intermedias, describiendo los tipos de proposiciones que se pueden representar y detallando las estructuras de datos utilizadas en el proceso.
+
 ## main.py
 
 Importación de Módulos:
@@ -47,3 +51,7 @@ LineNumbers es una subclase para mostrar los números de línea junto al área d
 Ejecución Principal:
 
 Si este archivo se ejecuta como un script principal, se crea una instancia de la clase YaplAnalyzerApp y se inicia la GUI.
+
+## threeAddressCode.py
+
+
