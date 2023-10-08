@@ -2,9 +2,9 @@
 
 ## Estructuración del proyecto
 
-- CodigoIntermedio.md:
-- main.py:
-- threeAddressCode.py:
+- CodigoIntermedio.md
+- main.py
+- threeAddressCode.py
 - yaplWalker.py
 
 ## CodigoIntermedio.md
