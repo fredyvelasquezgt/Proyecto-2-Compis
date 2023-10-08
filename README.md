@@ -168,3 +168,35 @@ Visita las expresiones dentro de los corchetes y devuelve la primera expresión.
 
 visitExpr_decl:
 Visita la declaración de expresión y genera código de tres direcciones para la declaración.
+
+visitExpr_instance: Este método visita la parte del árbol que maneja expresiones de instancia. Parece que está generando una nueva instancia de un tipo. Se crea un terceto (código de tres direcciones) con el identificador del tipo.
+
+visitExpr_isvoid: Este método maneja la expresión isvoid. Verifica si el valor de una expresión es nulo o no.
+
+visitExpr_suma: Este método es responsable de las operaciones de suma (adición) y resta. Determina si la operación es suma o resta y luego calcula el resultado.
+
+visitExpr_mult: Este método es para operaciones de multiplicación y división. De manera similar al método de suma, determina el tipo de operación y luego calcula el resultado.
+
+visitExpr_negative: Maneja la expresión negativa, multiplicando efectivamente el valor de la expresión por -1.
+
+visitExpr_negado: Este método niega el valor de la expresión.
+
+visitExpr_less_than: Este método maneja las operaciones menor que (<) y menor o igual a (<=).
+
+visitExpr_equal: Este método verifica si dos expresiones son iguales.
+
+visitExpr_not: Este método realiza una operación lógica NOT en una expresión.
+
+visitExpr_parenthesis: Parece ser para manejar expresiones encerradas entre paréntesis. La operación real que se realiza no está del todo clara en el código proporcionado.
+
+visitExpr_id: Este método busca identificadores, que podrían ser un tipo o un objeto.
+
+visitExpr_int: Maneja valores enteros.
+
+visitExpr_str: Maneja valores de cadena.
+
+visitExpr_true: Devuelve un valor booleano verdadero.
+
+visitExpr_false: Devuelve un valor booleano falso.
+
+visitExpr_self: Devuelve la cadena "self", que probablemente se refiere a la instancia actual de un objeto en un contexto orientado a objetos.
