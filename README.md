@@ -66,7 +66,7 @@ Atributo tercetos: Una lista que almacenará los tercetos creados.
 Método add(): Permite agregar un nuevo terceto a la lista. Valida y convierte los valores de entrada a cadenas si no son None, enteros o cadenas. También genera un valor predeterminado para el atributo r si no se proporciona.
 Método generate_code(): Genera y escribe el código intermedio basado en los tercetos en un archivo llamado "output/code.tac". Según el operador y los operandos, decide qué formato de instrucción escribir.
 
-## yaplWalker.py
+## build/yaplWalker.py
 
 Este código define un visitante para árboles de análisis generados por el parser de yapl. El visitante está estructurado para manejar y visitar diferentes tipos de nodos en el árbol.
 
