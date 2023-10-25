@@ -31,7 +31,7 @@ Las propociciones que pueden existir en nuestro codigo de tres direcciones son:
 ## Estructura de dato
 Aunque se suele utilizar la estructura de un cuarteto para la implementación de código de tres direcciones, esta ocupa mucho espacio y se necesita el uso de muchas variables temporales para realizar los calculos intermedios. Es por eso que se utilizará la estructura de un *terceto*. 
 <br>
-A diferencia del cuarteto que su estructura es $(op, a, b, res, t)$ en donde:
+A diferencia del cuarteto que su estructura es $(op, a, b, res)$ en donde:
 * $op$ = operador
 * $a$ = argumento 1
 * $b$ = argumento 2
