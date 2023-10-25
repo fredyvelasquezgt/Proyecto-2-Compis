@@ -11,6 +11,5 @@ class yaplErrorListener(ErrorListener):
         self.errors.append({
             "msg": msg,
             "line": line,
-            "column": column,
-            "offendingSymbol": offendingSymbol
+            "column": column
         })

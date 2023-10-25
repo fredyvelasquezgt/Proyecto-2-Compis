@@ -1,5 +1,3 @@
-
-
 import sys
 import ctypes
 from antlr4 import *
@@ -111,7 +109,7 @@ class yaplWalker(yaplVisitor):
         return None
 
     def new_label(self):
-        label = "l_" + str(len(self.labels))
+        label = "L" + str(len(self.labels))
         self.labels.append(label)
 
         return label

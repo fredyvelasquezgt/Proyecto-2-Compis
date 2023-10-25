@@ -1,4 +1,3 @@
-
 import uuid
 
 BOOL_MAX_SIZE = 1

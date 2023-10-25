@@ -1,4 +1,3 @@
-
 from yaplWalker import yaplWalker
 
 error = 0

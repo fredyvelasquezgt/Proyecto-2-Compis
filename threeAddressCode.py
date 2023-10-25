@@ -1,4 +1,3 @@
-
 class Terceto():
 
     def __init__(self, o=None, x=None, y=None, r=None, l=None):
@@ -44,7 +43,7 @@ class ThreeAddressCode():
 
         if not r:
             # Compiler Three Address Code Reference
-            r = "_r{i}".format(i=len(self.tercetos))
+            r = "T{i}".format(i=len(self.tercetos))
 
         # if not l:
         #     # Compiler Three Address Code Label
@@ -60,7 +59,7 @@ class ThreeAddressCode():
             for terceto in self.tercetos:
                 l = terceto.l
                 # r = terceto.r
-                r = "_r{i}".format(i=self.tercetos.index(terceto))
+                r = "T{i}".format(i=self.tercetos.index(terceto))
                 o = terceto.o
                 x = terceto.x
                 y = terceto.y
